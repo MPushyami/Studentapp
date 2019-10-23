@@ -3,7 +3,7 @@ node {
       git credentialsId: 'github', url: 'https://github.com/supraja12/Studentapp.git'
    }
    stage('maven-clean') {
-   sh label: '', script: ' clean'
+   sh label: '', script: 'mvn clean'
    }
    stage('maven-compile') {
     sh label: '', script: 'mvn compile'  
