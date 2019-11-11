@@ -1,5 +1,3 @@
-   pipeline {
-    agent any
    node {
       stage('git-clone') {
              git branch: 'newcode', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/devops090/Studentapp.git' 
@@ -17,4 +15,3 @@
 	     sh label: '', script: 'sh mvn package'
       }
    }
-}
