@@ -1,0 +1,18 @@
+pipeline {
+   agent slave-2
+
+   stages {
+    stage('git-clone') {
+      
+      }
+	  stage('mvn compile') {
+         
+      }
+	  stage('sonarqube-codescan') {
+         
+      }
+	  stage('mvn-package') {
+         
+      }
+   }
+}
