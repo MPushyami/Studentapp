@@ -1,6 +1,4 @@
 pipeline {
-   agent slave-2
-
    stages {
       stage('git-clone') {
              git branch: 'newcode', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/devops090/Studentapp.git' 
