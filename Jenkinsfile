@@ -1,3 +1,5 @@
+pipeline {
+   agent slave-2
 node {
    stage('clone the github repo') {
       git credentialsId: 'github', url: 'https://github.com/supraja12/Studentapp.git'
@@ -17,4 +19,5 @@ node {
    stage('maven deploy-backup to nexus') {
     sh label: '', script: 'mvn deploy'  
    }  
+ }
 }
