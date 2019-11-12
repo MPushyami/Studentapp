@@ -1,17 +1,20 @@
-   node {
-      stage('git-clone') {
+pipeline {
+   agent slave-2   
+    	node {
+      	stage('git-clone') {
              git branch: 'newcode', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/devops090/Studentapp.git' 
-      }
-      stage('mvn clean') {
+      	}
+      	stage('mvn clean') {
              sh label: '', script: 'sh mvn clean'
-      }
-      stage('mvn compile') {
+       }
+      	stage('mvn compile') {
              sh label: '', script: 'sh mvn compile'
-      }
-      stage('sonarqube-codescan') {
+        }
+      	stage('sonarqube-codescan') {
 	     sh label: '', script: 'sh mvn sonar:sonar -Dsonar.projectKey=Studentapp -Dsonar.host.url=http://10.128.0.7:9000 -Dsonar.login=62f9cf42d313e4eb56ccc8107ce4322dbab14afb'
-      }
-      stage('mvn-package') {
+       }
+     	 stage('mvn-package') {
 	     sh label: '', script: 'sh mvn package'
-      }
-   }
+       }
+    }
+  }
