@@ -1,6 +1,4 @@
-pipeline {
-   agent slave-2   
-    	node {
+  node {
       	stage('git-clone') {
              git branch: 'newcode', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/devops090/Studentapp.git' 
       	}
@@ -17,4 +15,3 @@ pipeline {
 	     sh label: '', script: 'sh mvn package'
        }
     }
-  }
