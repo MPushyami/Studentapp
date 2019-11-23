@@ -14,4 +14,7 @@
      	stage('mvn-package') {
 	     sh label: '', script: 'sh mvn package'
        }
+        stage('mvn-deploy') {
+	     sh label: '', script: 'sh mvn deploy'
+       }
     }
